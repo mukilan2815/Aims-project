@@ -36,7 +36,7 @@ bash
 
     Access the application at http://localhost:5173 in your browser.
 
-License
+License - https://github.com/mukilan2815/Aims-project/blob/main/LICENSE.md
 
 This project is licensed under the ProjectX Custom License. See the LICENSE file for details. Usage rights are exclusive to Signal and Telecommunication, and no other entity or individual is granted any rights under this license.
 Contact
