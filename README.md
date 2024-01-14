@@ -1,12 +1,42 @@
-<<<<<<< HEAD
-# Aims-project
-=======
-# React + Vite
+# 🚀 Work Monitoring Software
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The **Work Monitoring Software** is a project designed to facilitate work monitoring and management. It is developed using **ReactJS**, **Mantine Table**, and **Tailwind CSS**. This software is intended to be hosted on **Signal and Telecommunication** servers, and usage rights are restricted to Signal and Telecommunication only.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
->>>>>>> be42282 (first commit)
+## Features
+
+- **Work Monitoring:** Keep track of tasks, projects, and overall work progress.
+- **ReactJS:** Built with the popular React library for a dynamic user interface.
+- **Mantine Table:** Utilizes Mantine Table for efficient and feature-rich tabular data display.
+- **Tailwind CSS:** Styling is done using Tailwind CSS for a modern and responsive design.
+
+## Usage
+
+This project is specifically designed for Signal and Telecommunication. If you are Signal and Telecommunication, follow the steps below to set up the software:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/mukilan2815/Aims-project
+   cd Aims-project
+
+    Install dependencies:
+
+    bash
+
+    npm install
+
+Start the development server:
+
+bash
+
+    npm run dev
+
+    Access the application at http://localhost:5173 in your browser.
+
+License
+
+This project is licensed under the ProjectX Custom License. See the LICENSE file for details. Usage rights are exclusive to Signal and Telecommunication, and no other entity or individual is granted any rights under this license.
+Contact
+
+For further information or inquiries, please contact **Mukilan** at **mukilan2808@gmail.com**.
