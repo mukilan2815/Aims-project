@@ -12,9 +12,9 @@ import {
 } from "@tanstack/react-query";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
-import { makeData } from "./makeData";
+import { makeData2 } from "./makeData2";
 
-const Example = () => {
+const Viewsubassembly = () => {
   const [validationErrors, setValidationErrors] = useState({});
   const [editedUsers, setEditedUsers] = useState({});
   const { mutateAsync: createUser, isLoading: isCreatingUser } =
@@ -64,73 +64,148 @@ const Example = () => {
   const columns = useMemo(
     () => [
       {
-        accessorKey: "componentType",
-        header: "Component Type",
+        accessorKey: "sno",
+        header: "S.No",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "oldPLNo",
-        header: "Old PL No",
+        accessorKey: "rfInitial",
+        header: "RF's Initial",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "upNo",
-        header: "UP No",
+        accessorKey: "woNo",
+        header: "Wo.no",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "plNo",
-        header: "PL No",
+        accessorKey: "jcNo",
+        header: "Jc.no",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "briefDescription",
-        header: "Brief Description",
+        accessorKey: "jcType",
+        header: "jctype",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "detailedDescription",
-        header: "Detailed Description",
+        accessorKey: "item",
+        header: "item",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "selectUnit",
-        header: "Select Unit",
+        accessorKey: "shop",
+        header: "shop",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "componentRate",
-        header: "Component Rate",
+        accessorKey: "subassy",
+        header: "subassy.",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "availabilityStock",
-        header: "Availability Stock",
+        accessorKey: "remarks",
+        header: "remarks",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "previousPurchaseValue",
-        header: "Previous Purchase Value",
+        accessorKey: "refNo",
+        header: "Ref.no",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "closingShop",
-        header: "Closing Shop",
+        accessorKey: "jcQty",
+        header: "JC Qty",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "shopFlow",
-        header: "Shop Flow",
+        accessorKey: "qps",
+        header: "QPS",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "category",
-        header: "Category",
+        accessorKey: "unit",
+        header: "unit",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
       {
-        accessorKey: "requiredFor",
-        header: "Required For",
+        accessorKey: "batchNo",
+        header: "Batch no",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "batchQty",
+        header: "Batch qty",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "allocatedTo",
+        header: "Allocated to",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "started",
+        header: "started",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "completed",
+        header: "completed",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "preparedTime",
+        header: "prepared Time",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "allowedTime",
+        header: "Allowed Time",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "totalTime",
+        header: "total time",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "timeTaken",
+        header: "time taken",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "abnormality",
+        header: "abnormality",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "passed",
+        header: "passed",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "rejected",
+        header: "rejected",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "export",
+        header: "export",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "createdOn",
+        header: "created on",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "print",
+        header: "Print",
+        mantineEditTextInputProps: ({ cell, row }) => ({}),
+      },
+      {
+        accessorKey: "status",
+        header: "Status",
         mantineEditTextInputProps: ({ cell, row }) => ({}),
       },
     ],
@@ -254,8 +329,13 @@ function useGetUsers() {
   return useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      return Promise.resolve(makeData);
+      try {
+        const data = await makeData2(); // Fetch data here or replace with your actual data-fetching logic
+        return Promise.resolve(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        throw error;
+      }
     },
     refetchOnWindowFocus: false,
   });
@@ -296,15 +376,15 @@ function useDeleteUser() {
 
 const queryClient = new QueryClient();
 
-const ExampleWithProviders = () => (
+const Viewsubassemblyprovider = () => (
   <QueryClientProvider client={queryClient}>
     <ModalsProvider>
-      <Example />
+      <Viewsubassembly />
     </ModalsProvider>
   </QueryClientProvider>
 );
 
-export default ExampleWithProviders;
+export default Viewsubassemblyprovider;
 
 const validateRequired = (value) => !!value?.length;
 const validateEmail = (email) =>
